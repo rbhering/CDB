@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-2">
+        <h4>Cálculo do CDB</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="row">
+      <div class="col-lg-3">
+        <label for="valorInicial">Valor do Investimento: </label>
+        <input (keyup)="verificarValorInvestimento()" maxlength="13"  class="form-control" id="valorInicial" [(ngModel)]="valorInicial" currencyMask
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+      </div>
+      <div class="col-lg-3">
+        <label for="qtdMeses">Quantidade de Meses: </label>
+        <input (input)="verificarValorMeses()" (keyup)="esconderValorBrutoEValorLiquido()" class="form-control" style="text-align:right" type="number" id="qtdMeses" [(ngModel)]="qtdMeses" />
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="container">
+  <div>
+    <div class="row">
+      <div class="col-lg-offset-2 col-lg-2">
+        <button class="form-control" style="background-color:#8b0000; color:white" (click)="calcularCdb()">Calcular CDB</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="row">
+      <div *ngIf="valorBruto > 0" class="col-lg-3">
+        <label for="valorBruto">Valor Bruto: </label>
+        <input class="form-control" style="background-color:	#bb9469; color:white" readonly type="text" id="valorBruto" currencyMask [(ngModel)]="valorBruto"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+      </div>
+      <div *ngIf="valorLiquido > 0" class="col-lg-3">
+        <label for="valorLiquido">Valor Liquido: </label>
+        <input class="form-control" style="background-color:	#bb9469; color:white" readonly type="text" id="valorLiquido" currencyMask [(ngModel)]="valorLiquido"
+          [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
