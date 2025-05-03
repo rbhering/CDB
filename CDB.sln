@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDB.API", "CDB.Server\CDB.API.csproj", "{5CE04B8D-C400-426D-902E-F628E5795613}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "CDB.UI.Angular", "cdb.client\CDB.UI.Angular.esproj", "{972F5EA1-7690-45A5-AB01-6968B221DD77}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9789B2A6-6E19-4452-AE0E-37E8828EA2E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8EA92F55-D187-4300-8A1C-10558B15A199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDB.Domain", "CDB.Domain\CDB.Domain.csproj", "{566B8C10-DEB4-49DE-B11D-8E544BE59C87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{972F5EA1-7690-45A5-AB01-6968B221DD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{972F5EA1-7690-45A5-AB01-6968B221DD77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{972F5EA1-7690-45A5-AB01-6968B221DD77}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{566B8C10-DEB4-49DE-B11D-8E544BE59C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{566B8C10-DEB4-49DE-B11D-8E544BE59C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{566B8C10-DEB4-49DE-B11D-8E544BE59C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{566B8C10-DEB4-49DE-B11D-8E544BE59C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5CE04B8D-C400-426D-902E-F628E5795613} = {9789B2A6-6E19-4452-AE0E-37E8828EA2E2}
 		{972F5EA1-7690-45A5-AB01-6968B221DD77} = {9789B2A6-6E19-4452-AE0E-37E8828EA2E2}
+		{566B8C10-DEB4-49DE-B11D-8E544BE59C87} = {8EA92F55-D187-4300-8A1C-10558B15A199}
 	EndGlobalSection
 EndGlobal
