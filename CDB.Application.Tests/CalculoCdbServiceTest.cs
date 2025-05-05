@@ -58,6 +58,8 @@ public sealed class CalculoCdbServiceTest
         //Estou instanciando os Repositories, porque eles são Fake, caso contraio, não instanciaria os Repositories em um teste 
         var mesesImpostoRepository = new MesesImpostoRepositoryFake();
         var tbCdiRepository = new TbCdiRepositorFake();
+        var bruto= 2613.13M;
+        var liquido = 2155.83M;
 
         CalculoCdbService calculoCdbService = 
             new CalculoCdbService(mesesImpostoRepository, tbCdiRepository);
@@ -71,8 +73,8 @@ public sealed class CalculoCdbServiceTest
                                                           });
 
         //Assert
-        Assert.AreEqual(2613.13M, resultado.Result.ValorBruto);
-        Assert.AreEqual(2155.83M, resultado.Result.ValorLiquido);
+        Assert.AreEqual(bruto, resultado.Result.ValorBruto);
+        Assert.AreEqual(liquido, resultado.Result.ValorLiquido);
     }
 
 
