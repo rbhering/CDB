@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CDB.Application.IoC;
 
-public class DependencyContainer
+public static class DependencyContainer
 {
     public static void RegisterServices(IServiceCollection services)
     {
