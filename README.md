@@ -8,3 +8,8 @@
 3 - Após aberto o projeto clique com o botão direito do mouse na Solution e navegue até properties. Na tela que abrir navegue até Configure Startup Projects e escolha Multi0le Startups Projects. Mude os projetos CDB.API e CDB.UI.Angular para Start. Clique em Ok.
 
 <img src="https://github.com/rbhering/CDB/blob/main/Common/imagem02.jpg" alt="Texto Alternativo">
+
+
+4 - Clique no botão abaixo ou aperte a tecla F5.
+
+<img src="https://github.com/rbhering/CDB/blob/main/Common/imagem03.jpg" alt="Texto Alternativo">
