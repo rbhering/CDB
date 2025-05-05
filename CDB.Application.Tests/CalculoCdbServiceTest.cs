@@ -55,7 +55,7 @@ public sealed class CalculoCdbServiceTest
     public void CalculoCdbService_CalcularCdb_Deve_Retornar_CdbResponseDto_Com_Valores_Corretos()
     {
         // Arrange  
-        //Estou instanciando os Repositories, porque ele é Fake, caso contraio, não instanciaria os Repositories em um teste 
+        //Estou instanciando os Repositories, porque eles são Fake, caso contraio, não instanciaria os Repositories em um teste 
         var mesesImpostoRepository = new MesesImpostoRepositoryFake();
         var tbCdiRepository = new TbCdiRepositorFake();
 
