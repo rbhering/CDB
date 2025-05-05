@@ -10,18 +10,15 @@ using CDB.Infra.Data.Fake;
 
 namespace CDB.Application.Tests.Unit
 {
-    public  class TestFactory 
+    public class CalculoCdbServiceFactoryTest : CalculoCdbService() base(IServiceCollection services) 
     {
-        private  IMesesImpostoRepository _mesesImpostoRepository;
-        private  ITbCdiRepository _tbCdiRepository;
+        public ICalculoCdbService CalculoCdbService { get; set; }
 
-        public ICalculoCdbService CalculoCdbService { get; set; } 
-
-        public TestFactory()
+        public CalculoCdbServiceFactoryTest()
         {
-            _mesesImpostoRepository = new MesesImpostoRepositoryFake();
-            _tbCdiRepository = new TbCdiRepositorFake();
-            CalculoCdbService = new CalculoCdbService(_mesesImpostoRepository, _tbCdiRepository);   
+            var mesesImpostoRepository = new MesesImpostoRepositoryFake();
+            var tbCdiRepository = new TbCdiRepositorFake();
+            CalculoCdbService = new CalculoCdbService(mesesImpostoRepository, tbCdiRepository);
         }
     }
 }

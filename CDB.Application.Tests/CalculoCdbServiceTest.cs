@@ -60,10 +60,10 @@ public sealed class CalculoCdbServiceTest
             QtdMeses = -12,
             ValorInicial = 1250
         };
-        TestFactory testFactory = new TestFactory();
+        CalculoCdbServiceFactoryTest testFactory = new CalculoCdbServiceFactoryTest();
 
         // Act  
-        var resultado = async () => await testFactory.CalculoCdbService.CalcularCdb(cdbRequestDto);
+        var resultado = /*async () => await */testFactory.CalculoCdbService.CalcularCdb(cdbRequestDto);
 
         var tt = 0;
 
