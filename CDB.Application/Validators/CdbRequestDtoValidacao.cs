@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CDB.Application.Dtos;
+
+namespace CDB.Application.Validators
+{
+    internal static class CdbRequestDtoValidacao
+    {
+        public static bool CdbRequestDtoValidar(CdbRequestDto cdbRequestDto)
+        {
+            if (cdbRequestDto.ValorInicial <= 0 || cdbRequestDto.ValorInicial > 250000)
+                throw new ArgumentException("Valor Inicial deve ser maior que zero e menor ou igual a 250.000,00.");
+
+            if (cdbRequestDto.QtdMeses <= 0 || cdbRequestDto.QtdMeses > 60)
+                throw new ArgumentException("Valor inicial deve ser maior que zero e menor ou igual a 60.");
+            
+            return true;
+        } 
+    }
+}

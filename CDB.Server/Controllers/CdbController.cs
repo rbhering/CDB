@@ -1,52 +1,51 @@
+using CDB.Application.Interfaces;
+using CDB.Application.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CDB.Server.Controllers
+namespace CDB.Server.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class CdbController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class CdbController : ControllerBase
+    private readonly ILogger<CdbController> _logger;
+    private readonly ICalculoCdbService _calculoCdbService;
+
+    public CdbController(ILogger<CdbController> logger, ICalculoCdbService calculoCdbService)
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        _logger = logger;
+        _calculoCdbService = calculoCdbService;
+    }
 
-        private readonly ILogger<CdbController> _logger;
-
-        public CdbController(ILogger<CdbController> logger)
+    [HttpPost(Name = "PostCdb")]
+    public async Task<IActionResult> Post([FromBody] CdbRequestDto cdbRequestDto)
+    {
+        if (ModelState.IsValid)
         {
-            _logger = logger;
-        }
-
-        [HttpGet(Name = "GetCdb")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            try
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                var retorno = await _calculoCdbService.CalcularCdb(cdbRequestDto);
+                return Ok(retorno);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Ocorreu um erro ao processar a solicitação", error = ex.Message });
+            }
         }
-
-        [HttpPost(Name = "PostCdb")]
-        public async Task<IActionResult> Post([FromBody] CdbRequestViiewModel cdbRequestViiewModel)
+        else
         {
-            return Ok(new CdbResponseViiewModel() { ValorBruto = 25, ValorLiquido = 85});
+            return BadRequest(new
+            {
+                message = "Dados inválidos",
+                errors = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage)
+            });
         }
-    }
-
-    public class CdbRequestViiewModel
-    {
-        public int QtdMeses { get; set; }
-        public decimal ValorInicial { get; set; }
-    }
-
-    public class CdbResponseViiewModel
-    {
-        public decimal ValorBruto { get; set; }
-        public decimal ValorLiquido { get; set; }
     }
 
 }
+
+
+
+

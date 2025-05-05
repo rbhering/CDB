@@ -12,6 +12,8 @@ const httpOptions = {
   templateUrl: './cdb.component.html',
   styleUrl: './cdb.component.css'
 })
+
+
 export class CdbComponent {
   valorInicial: number = 0;
   qtdMeses: number = 0;
@@ -39,11 +41,7 @@ export class CdbComponent {
     this.valorLiquido = 0;
   }
 
-  mostrarValorBrutoEValorLiquido(): void {
-
-  }
-
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
   calcularCdb() {
     if (this.valorInicial <= 0 || this.qtdMeses <= 0) {
@@ -64,7 +62,13 @@ export class CdbComponent {
         this.valorLiquido = result.valorLiquido;
       },
       (error) => {
-        console.error(error);
+        if (error.status === 400) {
+          console.error('Erros de Validação:', error.error);
+        } else if (error.status === 500) {
+          console.error('Erro de Servidor:', error.error.message);
+        } else {
+          console.error('Erro Inesperado', error);
+        }
       }
     );
   }
