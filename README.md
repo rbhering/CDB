@@ -13,3 +13,14 @@
 4 - Clique no botão abaixo ou aperte a tecla F5.
 
 <img src="https://github.com/rbhering/CDB/blob/main/Common/imagem03.jpg" alt="Texto Alternativo">
+
+
+5 - O projeto Angular é integrado ao Visual Studio 2022, portanto não precisa abri-lo no VS Code. O Navegador será aberto com o Web Site Angular.
+
+<img src="https://github.com/rbhering/CDB/blob/main/Common/imagem04.jpg" alt="Texto Alternativo">
+
+
+6 - Insira o Valor do Investimento, insira a Quantidade de Meses e clique no botão Calcular CDB. O Valor Líquido e o Valor Bruto irão aparecer.
+
+<img src="https://github.com/rbhering/CDB/blob/main/Common/imagem05.jpg" alt="Texto Alternativo">
+
