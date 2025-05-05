@@ -1,8 +1,8 @@
 ﻿using CDB.Application.Dtos;
 using CDB.Application.Interfaces;
 using CDB.Application.Services;
-using CDB.Application.Tests.Unit;
 using CDB.Domain.Interfaces.Repositories;
+using CDB.Infra.Data.Fake;
 using Moq;
 
 namespace CDB.Application.Tests;
@@ -52,24 +52,26 @@ public sealed class CalculoCdbServiceTest
     }
     
     [TestMethod]
-    public void CalculoCdbService_CalcularCdb_Deve_Retornar_ArgumentException_Qtd_Meses_Negativo()
+    public void CalculoCdbService_CalcularCdb_Deve_Retornar_CdbResponseDto_Com_Valores_Corretos()
     {
         // Arrange  
-        var cdbRequestDto = new CdbRequestDto()
-        {
-            QtdMeses = -12,
-            ValorInicial = 1250
-        };
-        CalculoCdbServiceFactoryTest testFactory = new CalculoCdbServiceFactoryTest();
+        var mesesImpostoRepository = new MesesImpostoRepositoryFake();
+        var tbCdiRepository = new TbCdiRepositorFake();
 
+        CalculoCdbService calculoCdbService = 
+            new CalculoCdbService(mesesImpostoRepository, tbCdiRepository);
+        
+        
         // Act  
-        var resultado = /*async () => await */testFactory.CalculoCdbService.CalcularCdb(cdbRequestDto);
+        var resultado = calculoCdbService.CalcularCdb(new CdbRequestDto
+                                                          {
+                                                              QtdMeses = 16,
+                                                              ValorInicial = 10000
+                                                          });
 
-        var tt = 0;
-
-        // Assert  
-        //Assert.AreNotEqual(0M, calculoCdbService); // Fixes CS0411 and S3415 by specifying type explicitly and correcting argument order.  
-        //Assert.AreEqual(1.14, resultado); // Fixes CS1002 by adding a missing semicolon.  
+        //Assert
+        Assert.AreEqual(2613.13M, resultado.Result.ValorBruto);
+        Assert.AreEqual(2155.83M, resultado.Result.ValorLiquido);
     }
 
 
