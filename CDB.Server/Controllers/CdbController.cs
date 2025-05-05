@@ -8,12 +8,10 @@ namespace CDB.Server.Controllers;
 [Route("[controller]")]
 public class CdbController : ControllerBase
 {
-    private readonly ILogger<CdbController> _logger;
     private readonly ICalculoCdbService _calculoCdbService;
 
-    public CdbController(ILogger<CdbController> logger, ICalculoCdbService calculoCdbService)
+    public CdbController(ICalculoCdbService calculoCdbService)
     {
-        _logger = logger;
         _calculoCdbService = calculoCdbService;
     }
 
