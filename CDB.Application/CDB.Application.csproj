@@ -8,11 +8,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CDB.Domain\CDB.Domain.csproj" />
-    <ProjectReference Include="..\CDB.Infra.Data.Fake\CDB.Infra.Data.Fake.csproj" />
+    <ProjectReference Include="..\CDB.Persistence\CDB.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
 
 </Project>

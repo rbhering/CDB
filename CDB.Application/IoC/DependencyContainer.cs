@@ -1,7 +1,7 @@
 ﻿using CDB.Application.Interfaces;
 using CDB.Application.Services;
-using CDB.Domain.Interfaces.Repositories;
-using CDB.Infra.Data.Fake;
+using CDB.Domain.Interfaces;
+using CDB.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 
 

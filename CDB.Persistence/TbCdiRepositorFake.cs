@@ -1,5 +1,5 @@
 ﻿using CDB.Domain.Entidades;
-using CDB.Domain.Interfaces.Repositories;
+using CDB.Domain.Interfaces;
 
 namespace CDB.Persistence;
 

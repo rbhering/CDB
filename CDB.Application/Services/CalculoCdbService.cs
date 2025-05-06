@@ -1,8 +1,8 @@
 ﻿using CDB.Application.Interfaces;
 using CDB.Application.Dtos;
 using CDB.Domain.Entidades;
-using CDB.Domain.Interfaces.Repositories;
 using CDB.Application.Validators;
+using CDB.Domain.Interfaces;
 
 namespace CDB.Application.Services;
 

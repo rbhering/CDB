@@ -1,6 +1,6 @@
 ﻿using CDB.Domain.Entidades;
 
-namespace CDB.Domain.Interfaces.Repositories;
+namespace CDB.Domain.Interfaces;
 
 public interface ITbCdiRepository
 {
