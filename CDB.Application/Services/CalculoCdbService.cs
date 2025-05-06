@@ -31,7 +31,7 @@ public class CalculoCdbService : ICalculoCdbService
             {
                 var valorFinal = CalcularValorFinal(cdbRequestDto.ValorInicial, item.QtdMeses, tbCdi);
 
-                cdbResponseDto.ValorBruto = Math.Round(CalcularValorBruto(valorFinal, cdbRequestDto.ValorInicial), 2);
+                cdbResponseDto.ValorBruto = Math.Round(valorFinal, 2);
 
                 cdbResponseDto.ValorLiquido = Math.Round(CalcularValorLiquido(cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
 
@@ -47,13 +47,8 @@ public class CalculoCdbService : ICalculoCdbService
     {
         return valorInicial * (decimal)Math.Pow((double)(1 + (tbCdi.Cdi * tbCdi.Tb)), (double)qtdMeses);
     }
-    private static decimal CalcularValorBruto(decimal valorFinal, decimal valorInicial)
-    {
-        return valorFinal - valorInicial;
-    }
-
     private static decimal CalcularValorLiquido(decimal valorBruto, decimal porcentagemImposto)
     {
-        return valorBruto - (valorBruto * porcentagemImposto);
+        return valorBruto * porcentagemImposto;
     }
 }

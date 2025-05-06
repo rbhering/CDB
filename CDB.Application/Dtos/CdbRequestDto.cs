@@ -5,7 +5,7 @@ namespace CDB.Application.Dtos;
 public class CdbRequestDto
 {
     [Required(ErrorMessage = "O campo Quantidade de Meses é obrigatório.")]
-    [Range(1, 60, ErrorMessage = "O campo Quantidade de Meses deve ser entre 1 e 60.")]
+    [Range(2, 60, ErrorMessage = "O campo Quantidade de Meses deve ser entre 2 e 60.")]
     public int QtdMeses { get; set; }
 
     [Required(ErrorMessage = "O campo Valor Inicial é obrigatório.")]

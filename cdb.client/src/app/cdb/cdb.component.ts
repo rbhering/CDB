@@ -44,8 +44,8 @@ export class CdbComponent {
   constructor(private readonly http: HttpClient) { }
 
   calcularCdb() {
-    if (this.valorInicial <= 0 || this.qtdMeses <= 0) {
-      alert('Valor do Investimento e Quantidade de Meses devem ser maiores que zero.');
+    if (this.valorInicial <= 0 || this.qtdMeses <= 1) {
+      alert('Valor do Investimento deve ser maior que 0. Quantidade de Meses deve ser maior que 1.');
       return;
     }
     if (this.qtdMeses > this.maximoMeses) {
