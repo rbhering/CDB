@@ -1,6 +1,6 @@
 ﻿using CDB.Application.Interfaces;
 using CDB.Application.Dtos;
-using CDB.Domain.Entidades;
+using CDB.Domain.Entities;
 using CDB.Application.Validators;
 using CDB.Domain.Interfaces;
 
@@ -29,11 +29,11 @@ public class CalculoCdbService : ICalculoCdbService
         {
             if (cdbRequestDto.QtdMeses <= item.QtdMeses)
             {
-                var valorFinal = CalcularValorFinal(cdbRequestDto.ValorInicial, item.QtdMeses, tbCdi);
+                cdbResponseDto.ValorBruto = 
+                    Math.Round(CalcularValorBruto(cdbRequestDto.ValorInicial, item.QtdMeses, tbCdi), 2);
 
-                cdbResponseDto.ValorBruto = Math.Round(valorFinal, 2);
-
-                cdbResponseDto.ValorLiquido = Math.Round(CalcularValorLiquido(cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
+                cdbResponseDto.ValorLiquido = 
+                    Math.Round(CalcularValorLiquido(cdbRequestDto.ValorInicial, cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
 
                 return cdbResponseDto;
             }
@@ -43,12 +43,12 @@ public class CalculoCdbService : ICalculoCdbService
 
     }
 
-    private static decimal CalcularValorFinal(decimal valorInicial, decimal qtdMeses, TbCdi tbCdi)
+    private static decimal CalcularValorBruto(decimal valorInicial, decimal qtdMeses, TbCdi tbCdi)
     {
         return valorInicial * (decimal)Math.Pow((double)(1 + (tbCdi.Cdi * tbCdi.Tb)), (double)qtdMeses);
     }
-    private static decimal CalcularValorLiquido(decimal valorBruto, decimal porcentagemImposto)
+    private static decimal CalcularValorLiquido(decimal valorInicial, decimal valorBruto, decimal porcentagemImposto)
     {
-        return valorBruto * porcentagemImposto;
+        return valorInicial + ((valorBruto - valorInicial) * porcentagemImposto);
     }
 }

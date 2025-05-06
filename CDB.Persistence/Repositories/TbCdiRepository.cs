@@ -1,10 +1,15 @@
-﻿using CDB.Domain.Entidades;
+﻿using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
 
-namespace CDB.Persistence;
+namespace CDB.Persistence.Repositories;
 
-public class TbCdiRepositorFake : ITbCdiRepository
+public class TbCdiRepository : ITbCdiRepository
 {
+    public async Task<bool> AddTbCdiAsync(TbCdi tbCdi)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<TbCdi> GetTbCdiAsync()
     {
         var tbCdiFake = new TbCdi()

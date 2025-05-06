@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CDB.Application\CDB.Application.csproj" />
+    <ProjectReference Include="..\CDB.CrossCutting\CDB.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

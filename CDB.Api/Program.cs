@@ -1,19 +1,15 @@
-using AutoMapper;
-using CDB.Application.IoC;
-using CDB.Application.Mapping;
-
+using CDB.CrossCutting.RegisterService;
+using CDB.Application.RegisterService;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.  
-var mapperConfig = new MapperConfiguration(cfg =>
-{
-    cfg.AddProfile<MappingProfile>();
-});
-IMapper mapper = mapperConfig.CreateMapper();
-builder.Services.AddSingleton(mapper);
+IoCContainer.RegisterServices(builder.Services);
+MediatorContainer.RegisterServices(builder.Services);
 
-DependencyContainer.RegisterServices(builder.Services);
+ServiceContainer.RegisterServices(builder.Services);
+
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle  
 builder.Services.AddEndpointsApiExplorer();
