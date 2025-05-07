@@ -31,7 +31,7 @@ public class CdbController(IMediator mediator) : ControllerBase
                 //var retorno = await mediator.Send(new MesesImpostoQuery());
                 var tt = await mediator.Send(new TbCdiQuery());
 
-                var retorno = await mediator.Send(new CdbResponseDtoQuery(cdbRequestDto));
+                var retorno = await mediator.Send(new CdbRequestDtoQuery(cdbRequestDto));
 
                 if (retorno != null)
                     return Ok(retorno);

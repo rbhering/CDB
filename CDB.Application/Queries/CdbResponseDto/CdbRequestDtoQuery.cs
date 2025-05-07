@@ -2,9 +2,9 @@
 
 namespace CDB.Application.Queries.CdbResponseDto;
 
-public class CdbResponseDtoQuery : IRequest<Dtos.CdbResponseDto>
+public class CdbRequestDtoQuery : IRequest<Dtos.CdbResponseDto>
 {
-    public CdbResponseDtoQuery(Dtos.CdbRequestDto result)
+    public CdbRequestDtoQuery(Dtos.CdbRequestDto result)
     {
         Result = result;
     }
