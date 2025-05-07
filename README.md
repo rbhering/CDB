@@ -2,7 +2,7 @@
 
 2 - Clique no ícone Code e clique no link Open with Visual Studio. O projeto deve ser aberto no Visual Studio 2022. Deve possuir o Sdk .net 8 instalado.
 
-<img src="https://github.com/rbhering/CDB/Common/imagem01.jpg" alt="Texto Alternativo">
+<img src="[https://github.com/rbhering/CDB/Common/imagem01.jpg](https://github.com/rbhering/CDB/blob/main/Common/imagem01.jpg)" alt="Texto Alternativo">
 
 
 3 - Após aberto o projeto clique com o botão direito do mouse na Solution e navegue até properties. Na tela que abrir navegue até Configure Startup Projects e escolha Multi0le Startups Projects. Mude os projetos CDB.API e CDB.UI.Angular para Start. Clique em Ok.
