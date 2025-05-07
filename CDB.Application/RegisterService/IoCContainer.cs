@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using CDB.Application.Interfaces;
+﻿using CDB.Application.Interfaces;
 using CDB.Application.Services;
 using CDB.Domain.Interfaces;
 using CDB.Persistence.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CDB.Application.RegisterService;
 

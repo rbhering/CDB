@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using CDB.Persistence;
 
 namespace CDB.Application.RegisterService;
 

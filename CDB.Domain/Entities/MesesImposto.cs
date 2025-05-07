@@ -3,6 +3,6 @@
 public class MesesImposto
 {
     public int MesesImpostoId { get; set; }
-    public int QtdMeses { get; set; }
-    public decimal PorcentagemImposto { get; set; }
+    public required int QtdMeses { get; set; }
+    public required decimal PorcentagemImposto { get; set; }
 }

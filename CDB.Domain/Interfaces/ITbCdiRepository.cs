@@ -4,6 +4,7 @@ namespace CDB.Domain.Interfaces;
 
 public interface ITbCdiRepository
 {
-    Task<TbCdi> GetTbCdiAsync();
-    Task<bool> AddTbCdiAsync(TbCdi tbCdi);
+    Task<int> AddTbCdiAsync(TbCdi tbCdi);
+    Task<TbCdi?> GetSingleTbCdiAsync();
+    Task<bool> GetAny();
 }

@@ -1,5 +1,6 @@
-using CDB.CrossCutting.RegisterService;
 using CDB.Application.RegisterService;
+using CDB.CrossCutting.RegisterService;
+using CDB.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

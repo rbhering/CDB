@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CDB.Application.Dtos;
+﻿using CDB.Application.Dtos;
 
 namespace CDB.Application.Validators
 {
@@ -16,8 +11,8 @@ namespace CDB.Application.Validators
 
             if (cdbRequestDto.QtdMeses <= 1 || cdbRequestDto.QtdMeses > 60)
                 throw new ArgumentException("Quantidade de meses deve ser maior ou igual a 2 e menor ou igual a 60.");
-            
+
             return true;
-        } 
+        }
     }
 }

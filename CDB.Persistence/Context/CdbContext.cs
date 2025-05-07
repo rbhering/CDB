@@ -7,6 +7,11 @@ public class CdbContext : DbContext
 {
     public CdbContext(DbContextOptions<CdbContext> options) : base(options) { }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseInMemoryDatabase("MinhaBaseDeDadosEmMemoria");
+    }
+
     public DbSet<MesesImposto> MesesImposto { get; set; }
     public DbSet<TbCdi> TbCdi { get; set; }
 }

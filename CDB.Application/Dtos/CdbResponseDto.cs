@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace CDB.Application.Dtos;
+﻿namespace CDB.Application.Dtos;
 
 public class CdbResponseDto
 {

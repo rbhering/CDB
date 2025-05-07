@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Queries\" />
+    <Folder Include="Commands\MesesImposto\" />
+    <Folder Include="Commands\TbCdi\" />
   </ItemGroup>
 
 </Project>

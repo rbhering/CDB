@@ -4,6 +4,6 @@ namespace CDB.Domain.Interfaces;
 
 public interface IMesesImpostoRepository
 {
-    Task<IEnumerable<MesesImposto>> GetMesesImpostoAsync();
-    Task<bool> AddMesesImpostoAsync(MesesImposto mesesImposto);
+    Task<List<MesesImposto>> GetAllMesesImpostoAsync();
+    Task<int> AddMesImpostoAsync(MesesImposto mesesImposto);
 }

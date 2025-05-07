@@ -1,23 +1,37 @@
 ﻿using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
+using CDB.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace CDB.Persistence.Repositories;
 
 public class TbCdiRepository : ITbCdiRepository
 {
-    public async Task<bool> AddTbCdiAsync(TbCdi tbCdi)
+    private readonly CdbContext _context;
+
+    public TbCdiRepository(CdbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public async Task<TbCdi> GetTbCdiAsync()
+    public async Task<int> AddTbCdiAsync(TbCdi tbCdi)
     {
-        var tbCdiFake = new TbCdi()
-        {
-            Tb = 1.08M,
-            Cdi = 0.009M
-        };
+        _context.Add(tbCdi);
+        return await _context.SaveChangesAsync();
+    }
 
-        return await Task.FromResult(tbCdiFake);
+    public async Task<TbCdi?> GetSingleTbCdiAsync()
+    {
+        if (await GetAny())
+            return await _context.TbCdi.FirstOrDefaultAsync();
+
+        return null;
+    }
+
+    public async Task<bool> GetAny()
+    {
+        return await _context.TbCdi.AnyAsync();
+
     }
 }

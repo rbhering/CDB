@@ -1,19 +1,25 @@
-using CDB.Application.Interfaces;
 using CDB.Application.Dtos;
+using CDB.Application.Queries.CdbResponseDto;
+using CDB.Application.Queries.MesesImposto;
+using CDB.Application.Queries.TbCdi;
+using MediatR;
+
+
+//using CDB.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CDB.Server.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class CdbController : ControllerBase
+public class CdbController(IMediator mediator) : ControllerBase
 {
-    private readonly ICalculoCdbService _calculoCdbService;
+    //private readonly ICalculoCdbService _calculoCdbService;  
 
-    public CdbController(ICalculoCdbService calculoCdbService)
-    {
-        _calculoCdbService = calculoCdbService;
-    }
+    //public CdbController(ICalculoCdbService calculoCdbService)  
+    //{        
+    //    _calculoCdbService = calculoCdbService;  
+    //}  
 
     [HttpPost(Name = "PostCdb")]
     public async Task<IActionResult> Post([FromBody] CdbRequestDto cdbRequestDto)
@@ -22,8 +28,15 @@ public class CdbController : ControllerBase
         {
             try
             {
-                var retorno = await _calculoCdbService.CalcularCdb(cdbRequestDto);
-                return Ok(retorno);
+                //var retorno = await mediator.Send(new MesesImpostoQuery());
+                var tt = await mediator.Send(new TbCdiQuery());
+
+                var retorno = await mediator.Send(new CdbResponseDtoQuery(cdbRequestDto));
+
+                if (retorno != null)
+                    return Ok(retorno);
+
+                return StatusCode(500, new { message = "Ocorreu um erro ao processar a solicitação" });
             }
             catch (Exception ex)
             {
@@ -41,7 +54,6 @@ public class CdbController : ControllerBase
             });
         }
     }
-
 }
 
 
