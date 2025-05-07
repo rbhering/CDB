@@ -1,6 +1,6 @@
+using CDB.Application.PopulateDataBaseInMemory;
 using CDB.Application.RegisterService;
 using CDB.CrossCutting.RegisterService;
-using CDB.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 IoCContainer.RegisterServices(builder.Services);
 MediatorContainer.RegisterServices(builder.Services);
 
-ServiceContainer.RegisterServices(builder.Services);
-
+ServiceContainer.RegisterDataBaseContext(builder.Services);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle  

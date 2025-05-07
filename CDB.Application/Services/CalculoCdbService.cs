@@ -1,5 +1,8 @@
 ﻿using CDB.Application.Dtos;
 using CDB.Application.Interfaces;
+using CDB.Application.PopulateDataBaseInMemory;
+using CDB.Application.Queries.MesesImposto;
+using CDB.Application.Queries.TbCdi;
 using CDB.Application.Validators;
 using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
@@ -9,24 +12,22 @@ namespace CDB.Application.Services;
 
 public class CalculoCdbService : ICalculoCdbService
 {
-    private readonly IMesesImpostoRepository _mesesImpostoRepository;
-    private readonly ITbCdiRepository _tbCdiRepository;
     private readonly IMediator _mediator;
 
-    public CalculoCdbService(IMesesImpostoRepository mesesImpostoRepository, ITbCdiRepository tbCdiRepository, IMediator mediator)
+    public CalculoCdbService(IMediator mediator)
     {
-        _mesesImpostoRepository = mesesImpostoRepository;
-        _tbCdiRepository = tbCdiRepository;
         _mediator = mediator;
     }
 
     public async Task<CdbResponseDto> CalcularCdb(CdbRequestDto cdbRequestDto)
     {
+        await PopulateDataBase.PopulateDatabaseInMemory(_mediator);
+
         CdbRequestDtoValidacao.CdbRequestDtoValidar(cdbRequestDto);
 
-        var mesesImposto = new List<MesesImposto>();
-        mesesImposto.Add(new MesesImposto() { QtdMeses = 11, PorcentagemImposto = 0.2M }); /*(List<MesesImposto>) await _mediator.Send(new MesesImposto() { PorcentagemImposto = 2, QtdMeses = 3 });*/
-        var tbCdi = new TbCdi() { Cdi = 0.009M, Tb = 1.08M }; /* (TbCdi) await _mediator.Send(new TbCdi() { Cdi = 2, Tb = 3 });*/
+        var mesesImposto = await _mediator.Send(new MesesImpostoQuery());        
+        var tbCdi = await _mediator.Send(new TbCdiQuery());
+
         var cdbResponseDto = new CdbResponseDto();
 
         foreach (var item in mesesImposto.OrderBy(x => x.QtdMeses))

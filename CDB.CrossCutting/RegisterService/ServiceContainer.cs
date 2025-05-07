@@ -6,12 +6,12 @@ namespace CDB.CrossCutting.RegisterService;
 
 public static class ServiceContainer
 {
-    public static void RegisterServices(IServiceCollection services)
+    public static void RegisterDataBaseContext(IServiceCollection services)
     {
         services.AddDbContext<CdbContext>(options => {
             options.UseInMemoryDatabase("CdbDatabase");
         });
-
     }
+
 }
 

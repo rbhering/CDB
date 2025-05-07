@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CDB.Domain\CDB.Domain.csproj" />
     <ProjectReference Include="..\CDB.Persistence\CDB.Persistence.csproj" />
   </ItemGroup>
 

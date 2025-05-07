@@ -16,9 +16,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\MesesImposto\" />
-    <Folder Include="Commands\TbCdi\" />
-  </ItemGroup>
-
 </Project>
