@@ -1,4 +1,3 @@
-using CDB.Application.Mappings;
 using CDB.Application.RegisterService;
 using CDB.CrossCutting.RegisterService;
 
@@ -7,7 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 IoCContainer.RegisterServices(builder.Services);
 MediatorContainer.RegisterServices(builder.Services);
 ServiceContainer.RegisterDataBaseContext(builder.Services);
-AutomapperExtension.AddMappings(builder.Services, typeof(CDB.Application.Mappings.MapperProfile)); 
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -1,4 +1,5 @@
-﻿using CDB.Domain.Entities;
+﻿using CDB.Common.Tests;
+using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
 using Moq;
 using System;
@@ -13,7 +14,7 @@ public static class MockTbCdiRepository
 {
     public static Mock<ITbCdiRepository> GetTbCdiRepository()
     {
-        TbCdi tbCdiMock = new TbCdi { Tb = 1.08M, Cdi = 0.009M };
+        TbCdi tbCdiMock = GetPopulateObjects.GetTbCdi();
 
         var mockRepo = new Mock<ITbCdiRepository>();
 

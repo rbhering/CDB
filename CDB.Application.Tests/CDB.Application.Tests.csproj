@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CDB.Api\CDB.Api.csproj" />
     <ProjectReference Include="..\CDB.Application\CDB.Application.csproj" />
+    <ProjectReference Include="..\CDB.Common.Tests\CDB.Common.Tests.csproj" />
     <ProjectReference Include="..\CDB.CrossCutting\CDB.CrossCutting.csproj" />
     <ProjectReference Include="..\CDB.Domain\CDB.Domain.csproj" />
     <ProjectReference Include="..\CDB.Persistence\CDB.Persistence.csproj" />

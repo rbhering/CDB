@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using CDB.Application.Dtos;
+﻿using CDB.Application.Dtos;
 using CDB.Application.Interfaces;
 using CDB.Application.PopulateDataBaseInMemory;
 using CDB.Application.Queries.MesesImposto;
@@ -10,37 +9,41 @@ using MediatR;
 
 namespace CDB.Application.Services;
 
-public class CalculoCdbService : ICalculoCdbService
+public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
 {
-    private readonly IMediator _mediator;
-    private readonly IMapper _mapper;
+    public required TbCdi TbCdi { get; set; }
+    public required List<MesesImposto> MesesImpostos { get; set; }
 
-    public CalculoCdbService(IMediator mediator, IMapper mapper)
+    public async Task PopulateTbCdiAsync()
     {
-        _mediator = mediator;
-        _mapper = mapper;
+        var tbCdiQuery = new TbCdiQuery();
+        TbCdi = mediator != null ? await mediator.Send(tbCdiQuery) : TbCdi;
+    }
+    public async Task PopulateMesesImpostoAsync()
+    {
+        var mesesImpostoQuery = new MesesImpostoQuery();
+        MesesImpostos = mediator != null ? await mediator.Send(mesesImpostoQuery) : MesesImpostos;
+        
     }
 
-    public async Task<CdbResponseDto> CalcularCdb(CdbRequestDto cdbRequestDto)
+    public CdbResponseDto CalcularCdb(CdbRequestDto cdbRequestDto)
     {
-        await PopulateDataBase.PopulateDatabaseInMemory(_mediator);
-
         CdbRequestDtoValidacao.CdbRequestDtoValidar(cdbRequestDto);
- 
-        cdbRequestDto.MesesImpostosDtos = _mapper.Map<List<MesessImpostoDto>>(await _mediator.Send(new MesesImpostoQuery()));        
-        cdbRequestDto.TbCdiDto = _mapper.Map<TbCdiDto>(await _mediator.Send(new TbCdiQuery()));
+        CdbRequestDtoValidacao.MesesImpostooValidar(MesesImpostos);
+        CdbRequestDtoValidacao.TbCdiValidar(TbCdi);
+
 
         var cdbResponseDto = new CdbResponseDto();
 
-        foreach (var item in cdbRequestDto.MesesImpostosDtos.OrderBy(x => x.QtdMeses))
+        foreach (var item in MesesImpostos.OrderBy(x => x.QtdMeses))
         {
             if (cdbRequestDto.QtdMeses <= item.QtdMeses)
             {
                 cdbResponseDto.ValorBruto =
-                    Math.Round(CalcularValorBruto(cdbRequestDto.ValorInicial, item.QtdMeses, cdbRequestDto.TbCdiDto), 2);
+                    Math.Round(CalcularValorBruto(cdbRequestDto.ValorInicial, item.QtdMeses, TbCdi), 2);
 
                 cdbResponseDto.ValorLiquido = 
-                    Math.Round(CalcularValorLiquido(valorInicial: cdbRequestDto.ValorInicial, cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
+                    Math.Round(CalcularValorLiquido(cdbRequestDto.ValorInicial, cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
 
                 return cdbResponseDto;
             }
@@ -50,7 +53,7 @@ public class CalculoCdbService : ICalculoCdbService
 
     }
 
-    private static decimal CalcularValorBruto(decimal valorInicial, decimal qtdMeses, TbCdiDto tbCdi)
+    private static decimal CalcularValorBruto(decimal valorInicial, decimal qtdMeses, TbCdi tbCdi)
     {
         return valorInicial * (decimal)Math.Pow((double)(1 + (tbCdi.Cdi * tbCdi.Tb)), (double)qtdMeses);
     }
