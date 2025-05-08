@@ -9,9 +9,6 @@ public class TbCdiQueryHandler(ITbCdiRepository tbCdiRepository)
     public async Task<CDB.Domain.Entities.TbCdi?> Handle
                                 (TbCdiQuery request, CancellationToken cancellationToken)
     {
-        if (await tbCdiRepository.GetAny())
-            return await tbCdiRepository.GetSingleTbCdiAsync();
-
-        return null;
+        return await tbCdiRepository.GetSingleTbCdiAsync() ?? null;
     }
 }

@@ -1,11 +1,5 @@
-using CDB.Application.Commands.TbCdi;
 using CDB.Application.Dtos;
-using CDB.Application.PopulateDataBaseInMemory;
 using CDB.Application.Queries.CdbResponseDto;
-using CDB.Application.Queries.MesesImposto;
-using CDB.Application.Queries.TbCdi;
-using CDB.Domain.Entities;
-using CDB.Persistence.Context;
 using MediatR;
 
 

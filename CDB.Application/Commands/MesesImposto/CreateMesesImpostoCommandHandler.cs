@@ -2,7 +2,7 @@
 using CDB.Persistence.Repositories;
 using MediatR;
 
-namespace CDB.Application.Commands.TbCdi;
+namespace CDB.Application.Commands.MesesImposto;
 
 public class CreateMesesImpostoCommandHandler(IMesesImpostoRepository mesesImpostoRepository) 
                                                                 : IRequestHandler<CreateMesesImpostoCommand, int>

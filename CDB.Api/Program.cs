@@ -1,17 +1,15 @@
-using CDB.Application.PopulateDataBaseInMemory;
+using CDB.Application.Mappings;
 using CDB.Application.RegisterService;
 using CDB.CrossCutting.RegisterService;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.  
 IoCContainer.RegisterServices(builder.Services);
 MediatorContainer.RegisterServices(builder.Services);
-
 ServiceContainer.RegisterDataBaseContext(builder.Services);
+AutomapperExtension.AddMappings(builder.Services, typeof(CDB.Application.Mappings.MapperProfile)); 
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle  
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -19,8 +17,7 @@ var app = builder.Build();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
-
-// Configure the HTTP request pipeline.  
+  
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

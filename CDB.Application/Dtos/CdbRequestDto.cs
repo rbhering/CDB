@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace CDB.Application.Dtos;
 
@@ -11,4 +12,10 @@ public class CdbRequestDto
     [Required(ErrorMessage = "O campo Valor Inicial é obrigatório.")]
     [Range(1, 250000, ErrorMessage = "O campo Valor Inicial deve ser maior que 0 e menor que 250.000,00.")]
     public decimal ValorInicial { get; set; }
+
+    [JsonIgnore]
+    public TbCdiDto? TbCdiDto { get; set; }
+
+    [JsonIgnore]
+    public List<MesessImpostoDto>? MesesImpostosDtos { get; set; }
 }

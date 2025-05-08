@@ -1,11 +1,11 @@
-﻿using CDB.Application.Dtos;
+﻿using AutoMapper;
+using CDB.Application.Dtos;
 using CDB.Application.Interfaces;
 using CDB.Application.PopulateDataBaseInMemory;
 using CDB.Application.Queries.MesesImposto;
 using CDB.Application.Queries.TbCdi;
 using CDB.Application.Validators;
 using CDB.Domain.Entities;
-using CDB.Domain.Interfaces;
 using MediatR;
 
 namespace CDB.Application.Services;
@@ -13,10 +13,12 @@ namespace CDB.Application.Services;
 public class CalculoCdbService : ICalculoCdbService
 {
     private readonly IMediator _mediator;
+    private readonly IMapper _mapper;
 
-    public CalculoCdbService(IMediator mediator)
+    public CalculoCdbService(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
     public async Task<CdbResponseDto> CalcularCdb(CdbRequestDto cdbRequestDto)
@@ -24,21 +26,21 @@ public class CalculoCdbService : ICalculoCdbService
         await PopulateDataBase.PopulateDatabaseInMemory(_mediator);
 
         CdbRequestDtoValidacao.CdbRequestDtoValidar(cdbRequestDto);
-
-        var mesesImposto = await _mediator.Send(new MesesImpostoQuery());        
-        var tbCdi = await _mediator.Send(new TbCdiQuery());
+ 
+        cdbRequestDto.MesesImpostosDtos = _mapper.Map<List<MesessImpostoDto>>(await _mediator.Send(new MesesImpostoQuery()));        
+        cdbRequestDto.TbCdiDto = _mapper.Map<TbCdiDto>(await _mediator.Send(new TbCdiQuery()));
 
         var cdbResponseDto = new CdbResponseDto();
 
-        foreach (var item in mesesImposto.OrderBy(x => x.QtdMeses))
+        foreach (var item in cdbRequestDto.MesesImpostosDtos.OrderBy(x => x.QtdMeses))
         {
             if (cdbRequestDto.QtdMeses <= item.QtdMeses)
             {
                 cdbResponseDto.ValorBruto =
-                    Math.Round(CalcularValorBruto(cdbRequestDto.ValorInicial, item.QtdMeses, tbCdi), 2);
+                    Math.Round(CalcularValorBruto(cdbRequestDto.ValorInicial, item.QtdMeses, cdbRequestDto.TbCdiDto), 2);
 
-                cdbResponseDto.ValorLiquido =
-                    Math.Round(CalcularValorLiquido(cdbRequestDto.ValorInicial, cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
+                cdbResponseDto.ValorLiquido = 
+                    Math.Round(CalcularValorLiquido(valorInicial: cdbRequestDto.ValorInicial, cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
 
                 return cdbResponseDto;
             }
@@ -48,7 +50,7 @@ public class CalculoCdbService : ICalculoCdbService
 
     }
 
-    private static decimal CalcularValorBruto(decimal valorInicial, decimal qtdMeses, TbCdi tbCdi)
+    private static decimal CalcularValorBruto(decimal valorInicial, decimal qtdMeses, TbCdiDto tbCdi)
     {
         return valorInicial * (decimal)Math.Pow((double)(1 + (tbCdi.Cdi * tbCdi.Tb)), (double)qtdMeses);
     }

@@ -1,8 +1,6 @@
-﻿using CDB.Application.Commands.TbCdi;
-using CDB.Application.Queries.MesesImposto;
+﻿using CDB.Application.Commands.MesesImposto;
+using CDB.Application.Commands.TbCdi;
 using CDB.Application.Queries.TbCdi;
-using CDB.Domain.Entities;
-using CDB.Domain.Interfaces;
 using MediatR;
 
 namespace CDB.Application.PopulateDataBaseInMemory;

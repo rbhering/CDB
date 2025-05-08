@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CDB.Application.Commands.TbCdi;
+namespace CDB.Application.Commands.MesesImposto;
 
 public class CreateMesesImpostoCommand : IRequest<int>
 {
