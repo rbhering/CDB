@@ -3,9 +3,14 @@ Descrição do projeto:
 Arquitetura:
 Clean Atchtechture e CQRS, seguindo os princípios SOLID.
 
-Design Patterns:
-Mediator, Repositoy, 
+Design Patterns utilizados:
+Mediator, Repositoy, Factory, Strategy, Command, Layered.
 
+Abordagens: TDD, DDD.
+
+Tecnologias: .NET 8, Angular.
+
+Frameworks: MediatR, Entity Framework Core, 
 
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
 
