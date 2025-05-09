@@ -12,8 +12,7 @@ namespace CDB.Api.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class CdbController(IMediator mediator) : ControllerBase
-{
-    
+{    
 
     [HttpPost(Name = "PostCdb")]
     public async Task<IActionResult> Post([FromBody] CdbRequestDto cdbRequestDto)

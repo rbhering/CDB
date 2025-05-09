@@ -1,59 +1,44 @@
-﻿//using Microsoft.VisualStudio.TestPlatform.TestHost;
-//using Microsoft.AspNetCore.Mvc.Testing;
-//using CDB.Application.Dtos;
-//using Microsoft.AspNetCore.TestHost;
-//using Microsoft.Extensions.DependencyInjection;
-//using CDB.Domain.Interfaces;
-//using CDB.Persistence.Repositories;
+﻿//using Microsoft.AspNetCore.Builder;
+//using Microsoft.VisualStudio.TestPlatform.TestHost;
+//using System.Diagnostics.CodeAnalysis;
 
-//namespace CDB.Api.Test;
 
-//public class ProgramTest
+//public  class Program1
 //{
-//    [Fact]
-//    public async Task Program_Should_Start_Application_Correctly()
+//    [ExcludeFromCodeCoverage]
+//    private static void Main(string[] args)
 //    {
-//        // Arrange  
-//        var application = new WebApplicationFactory<Program>();
-
-//        // Act  
-//        try
-//        {
-//            var client = application.CreateClient();
-
-//            var response = await client.GetAsync("/");
-//        }
-//        catch (Exception ex)
-//        {
-//            var tt = ex;
-//            throw;
-//        }
-     
-//        //var response = await client.PostAsync("/cdb", ()new CdbRequestDto() { QtdMeses = 10, ValorInicial = 1000});
-
-//        // Assert  
-//        //Assert.True(response.IsSuccessStatusCode);
+//        WebApplication app = Bootstrap(args);
+//        app.Run();
+        
 //    }
 
-//    [Fact]
-//    public async Task Get_QuoteService_ProvidesQuoteInPage()
+//    public static WebApplication Bootstrap(string[] args)
 //    {
-//        var facory = new WebApplicationFactory<Program>();
+//        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-//        // Arrange
-//        var client = facory.WithWebHostBuilder(builder =>
-//        {
-//            builder.ConfigureTestServices(services =>
-//            {
-//                services.AddScoped<IMesesImpostoRepository, MesesImpostoRepository>();
-//            });
-//        }).CreateClient();
+//        // Your code here  
 
-//        //Act
-//        var defaultPage = await client.GetAsync("/");
+//        WebApplication app = builder.Build();
 
-//        // Assert
-//        //Assert.Equal("Something's interfering with time, Mr. Scarman, " +
-//        //    "and time is my business.", quoteElement.Attributes["value"].Value);
+//        // Your other code here  
+
+//        return app;
+//    }
+//}
+
+//public static class MyUnitTests
+//{
+//    [Fact]
+//    public static void TestSomething()
+//    {
+//        Microsoft.VisualStudio.TestPlatform.TestHost.Program progrm; = new Microsoft.VisualStudio.TestPlatform.TestHost.Program();
+
+//        string[] args = Array.Empty<string>();
+
+//        //WebApplication app = 
+//        var tt = progrm.Equals(args);
+
+//        Assert.NotNull(app);
 //    }
 //}

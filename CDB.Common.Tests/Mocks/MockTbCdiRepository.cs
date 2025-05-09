@@ -21,6 +21,8 @@ public static class MockTbCdiRepository
             return 1;
         });
 
+        mockRepo.Setup(r => r.GetSingleTbCdiAsync()).ReturnsAsync(tbCdiMock);;
+
         return mockRepo;
 
     }

@@ -17,7 +17,7 @@ public class CreateTbCdiRequestHandlerTests
     }
 
     [Fact]
-    public async Task CreatetMesesImposttoListTest()
+    public async Task CreatetTbCdiListTest()
     {
         var handler = new CreateTbCdiCommandHandler(_mockRepo.Object);
 
