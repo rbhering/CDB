@@ -4,20 +4,28 @@ Arquitetura:
 Clean Atchtechture e CQRS, seguindo os princípios SOLID.
 
 Design Patterns utilizados:
-Mediator, Repositoy, Factory, Strategy, Command, Layered.
+Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC.
 
-Abordagens: TDD, DDD.
+Abordagens: 
+TDD, DDD.
 
-Tecnologias: .NET 8, Angular.
+Tecnologias: 
+.NET 8, Angular 19.
 
-Frameworks: MediatR, Entity Framework Core, 
+Frameworks: 
+MediatR, Entity Framework Core, Moq, Node.js, xUnit.
 
 Banco de Dados:
-DataBase in Memory Com Entity Framework Core.
+Banco in Memory Com Entity Framework Core in Memory.
+
+A imagem abaixo representa as arquiteturas. A arquitetura não é exatamente igual, mas sim baseada:
+
+<img src="https://github.com/rbhering/CDB/blob/main/Common/imagem06.jpg" alt="Texto Alternativo">
+
 
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
 
-2 - Clique no ícone Code e clique no link Open with Visual Studio. O projeto deve ser aberto no Visual Studio 2022. Deve possuir o Sdk .net 8 instalado.
+2 - Clique no ícone Code e clique no link Open with Visual Studio. O projeto deve ser aberto no Visual Studio 2022. Deve possuir o Sdk .net 8 e o Node.js instalados.
 
 <img src="https://github.com/rbhering/CDB/blob/main/Common/imagem01.jpg" alt="Texto Alternativo">
 
