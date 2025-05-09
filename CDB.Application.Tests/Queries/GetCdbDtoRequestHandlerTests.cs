@@ -10,7 +10,7 @@ using CDB.Domain.Interfaces;
 using Moq;
 using Shouldly;
 
-namespace CDB.Application.Tests.Queries;
+namespace CDB.Application.Tests.Queries; 
 
 public class GetCdbDtoRequestHandlerTests
 {
