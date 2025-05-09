@@ -1,44 +1,36 @@
-﻿//using Microsoft.AspNetCore.Builder;
+﻿//using Microsoft.AspNetCore.Hosting;
+//using Microsoft.AspNetCore.Mvc.Testing;
 //using Microsoft.VisualStudio.TestPlatform.TestHost;
-//using System.Diagnostics.CodeAnalysis;
 
-
-//public  class Program1
+//public class PrograTest : IClassFixture<WebApplicationFactory<Program>>
 //{
-//    [ExcludeFromCodeCoverage]
-//    private static void Main(string[] args)
+//    private readonly WebApplicationFactory<Program> _factory;
+
+//    public PrograTest(WebApplicationFactory<Program> factory)
 //    {
-//        WebApplication app = Bootstrap(args);
-//        app.Run();
-        
+//        _factory = factory;
 //    }
 
-//    public static WebApplication Bootstrap(string[] args)
+//    [Fact]
+//    public void Get_EndpointsReturnSuccessAndCorrectContentType()
 //    {
-//        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+//        // Arrange
+//        var client = _factory.CreateClient();
 
-//        // Your code here  
+//        // Act
+//        //var response = await client.GetAsync("");
 
-//        WebApplication app = builder.Build();
-
-//        // Your other code here  
-
-//        return app;
+//        // Assert
+//        //response.EnsureSuccessStatusCode(); // Status Code 200-299
+//        //Assert.Equal("text/html; charset=utf-8",
+//        //    response.Content.Headers.ContentType.ToString());
+//    }
+//    protected override IWebHostBuilder CreateWebHostBuilder()
+//    {
+//        return Program.CreateWebHostBuilder(new string[] { });
 //    }
 //}
-
-//public static class MyUnitTests
+//public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
 //{
-//    [Fact]
-//    public static void TestSomething()
-//    {
-//        Microsoft.VisualStudio.TestPlatform.TestHost.Program progrm; = new Microsoft.VisualStudio.TestPlatform.TestHost.Program();
-
-//        string[] args = Array.Empty<string>();
-
-//        //WebApplication app = 
-//        var tt = progrm.Equals(args);
-
-//        Assert.NotNull(app);
-//    }
+    
 //}

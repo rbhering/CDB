@@ -23,15 +23,9 @@ public class TbCdiRepository : ITbCdiRepository
 
     public async Task<TbCdi?> GetSingleTbCdiAsync()
     {
-        if (await GetAny())
-            return await _context.TbCdi.FirstOrDefaultAsync();
+        var tbCdi = await _context.TbCdi.FirstOrDefaultAsync();
 
-        return null;
+        return tbCdi ?? null;
     }
 
-    public async Task<bool> GetAny()
-    {
-        return await _context.TbCdi.AnyAsync();
-
-    }
 }

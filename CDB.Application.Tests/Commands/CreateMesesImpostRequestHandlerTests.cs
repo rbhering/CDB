@@ -1,7 +1,5 @@
-﻿using CDB.Application.Queries.MesesImposto;
-using CDB.Application.Commands.MesesImposto;
+﻿using CDB.Application.Commands.MesesImposto;
 using CDB.Application.Common.Mocks;
-using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
 using Moq;
 using Shouldly;
@@ -20,13 +18,15 @@ public class CreateMesesImpostRequestHandlerTests
     [Fact]
     public async Task CreatetMesesImposttoListTest()
     {
+        // Arrange
         var handler = new CreateMesesImpostoCommandHandler(_mockRepo.Object);
 
+        // Act
         var result = await handler.Handle(
             new CreateMesesImpostoCommand() { PorcentagemImposto = 0.2M, QtdMeses = 2}, CancellationToken.None);
 
-        result.ShouldBeOfType<int>();
-
-        result.Equals(1);
+        //Assert
+        Assert.Equal(typeof(int), result.GetType());
+        Assert.Equal(1, result);
     }
 }

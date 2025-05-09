@@ -8,9 +8,13 @@ public class MediatorContainerTest()
     [Fact]
     public void RegisterServices()
     {
+        // Arrange
         var services = new ServiceCollection();
+
+        // Act
         MediatorContainer.RegisterServices(services);
 
-        Assert.Equal(true,services.Count > 0);
+        // Assert
+        Assert.True(services.Count > 0);
     }
 }

@@ -9,6 +9,8 @@ public class IoCContainerTest
     {
         // Arrange
         var services = new ServiceCollection();
+
+        // Act
         Application.RegisterService.IoCContainer.RegisterServices(services);
         
 

@@ -20,7 +20,6 @@ namespace CDB.Api.Test
                 ValorInicial = 12M
             };
             var mockMediatr = new Mock<IMediator>();
-            //var expectedResult = new OkObjectResult("Success");
             var expectedResult = System.Threading.Tasks.Task.FromResult(
             new CdbResponseDto
             {
@@ -38,7 +37,6 @@ namespace CDB.Api.Test
             Assert.IsType<OkObjectResult>(result);
             mockMediatr.Verify(m => m.Send(It.IsAny<CdbRequestDtoQuery>(), It.IsAny<CancellationToken>()), Times.Once);
 
-            //new CdbRequestDtoQuery(cdbRequestDto)
         }
 
         [Fact]
@@ -68,6 +66,7 @@ namespace CDB.Api.Test
             }
             catch (Exception ex)
             {
+                //Assert
                 Assert.Equal("Valor Inicial deve ser maior que zero e menor ou igual a 250.000,00.", ex.Message.ToString());
                 Assert.IsType<System.ArgumentException>(ex);
             }
