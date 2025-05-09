@@ -18,6 +18,7 @@ MediatR, Entity Framework Core, Mock, NPM.
 Banco de Dados:
 Banco in Memory Com Entity Framework Core in Memory.
 
+
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
 
 2 - Clique no ícone Code e clique no link Open with Visual Studio. O projeto deve ser aberto no Visual Studio 2022. Deve possuir o Sdk .net 8 instalado.
