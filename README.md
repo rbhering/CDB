@@ -6,14 +6,17 @@ Clean Atchtechture e CQRS, seguindo os princípios SOLID.
 Design Patterns utilizados:
 Mediator, Repositoy, Factory, Strategy, Command, Layered.
 
-Abordagens: TDD, DDD.
+Abordagens: 
+TDD, DDD.
 
-Tecnologias: .NET 8, Angular.
+Tecnologias: 
+.NET 8, Angular 19.
 
-Frameworks: MediatR, Entity Framework Core, 
+Frameworks: 
+MediatR, Entity Framework Core, Mock, NPM.
 
 Banco de Dados:
-DataBase in Memory Com Entity Framework Core.
+Banco in Memory Com Entity Framework Core in Memory.
 
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
 
