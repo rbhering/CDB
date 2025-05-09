@@ -13,10 +13,14 @@ Tecnologias:
 .NET 8, Angular 19.
 
 Frameworks: 
-MediatR, Entity Framework Core, Mock, NPM.
+MediatR, Entity Framework Core, Mock, NPM,  xUnit.
 
 Banco de Dados:
 Banco in Memory Com Entity Framework Core in Memory.
+
+A imagem abaixo representa as arquiteturas. A arquitetura não é exatamente igual, mas sim baseada;
+
+<img src="https://github.com/rbhering/CDB/blob/main/Common/imagem06.jpg" alt="Texto Alternativo">
 
 
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
