@@ -3,7 +3,7 @@ using CDB.Application.Interfaces;
 using CDB.Application.Queries.CdbResponseDto;
 using CDB.Application.Queries.MesesImposto;
 using CDB.Application.Services;
-using CDB.Application.Tests.Mocks;
+using CDB.Application.Common.Mocks;
 using CDB.Common.Tests;
 using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;

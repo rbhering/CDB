@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Moq" Version="4.20.72" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CDB.Api\CDB.Api.csproj" />
+    <ProjectReference Include="..\CDB.Application\CDB.Application.csproj" />
+    <ProjectReference Include="..\CDB.CrossCutting\CDB.CrossCutting.csproj" />
     <ProjectReference Include="..\CDB.Domain\CDB.Domain.csproj" />
+    <ProjectReference Include="..\CDB.Persistence\CDB.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

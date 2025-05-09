@@ -1,5 +1,5 @@
 ﻿using CDB.Application.Queries.TbCdi;
-using CDB.Application.Tests.Mocks;
+using CDB.Application.Common.Mocks;
 using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
 using Moq;

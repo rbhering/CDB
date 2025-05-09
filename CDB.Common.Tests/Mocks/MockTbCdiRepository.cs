@@ -2,13 +2,8 @@
 using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CDB.Application.Tests.Mocks;
+namespace CDB.Application.Common.Mocks;
 
 public static class MockTbCdiRepository
 {

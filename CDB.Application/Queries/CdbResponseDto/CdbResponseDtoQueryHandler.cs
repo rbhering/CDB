@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using CDB.Application.Interfaces;
-using CDB.Application.PopulateDataBaseInMemory;
 
 namespace CDB.Application.Queries.CdbResponseDto;
 
@@ -11,11 +10,10 @@ public class CdbResponseDtoHandler(ICalculoCdbService calculoCdbService, IMediat
     {
         if(mediator != null)
         {
-            await PopulateDataBase.PopulateDatabaseInMemory(mediator);
-            await calculoCdbService.PopulateMesesImpostoAsync();
-            await calculoCdbService.PopulateTbCdiAsync();
+            //await calculoCdbService.PopulateMesesImpostoAsync();
+            //await calculoCdbService.PopulateTbCdiAsync();
         }
     
-        return calculoCdbService.CalcularCdb(request.Result);
+        return await calculoCdbService.CalcularCdb(request.Result);
     }
 }

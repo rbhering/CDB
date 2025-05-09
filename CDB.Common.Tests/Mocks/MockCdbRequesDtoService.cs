@@ -4,7 +4,7 @@ using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
 using Moq;
 
-namespace CDB.Application.Tests.Mocks
+namespace CDB.Application.Common.Mocks
 {
     public static class MockCdbRequesDtoService
     {

@@ -1,6 +1,5 @@
 ﻿using CDB.Application.Dtos;
 using CDB.Application.Interfaces;
-using CDB.Application.PopulateDataBaseInMemory;
 using CDB.Application.Queries.MesesImposto;
 using CDB.Application.Queries.TbCdi;
 using CDB.Application.Validators;
@@ -26,8 +25,11 @@ public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
         
     }
 
-    public CdbResponseDto CalcularCdb(CdbRequestDto cdbRequestDto)
+    public async Task<CdbResponseDto> CalcularCdb(CdbRequestDto cdbRequestDto)
     {
+        await PopulateTbCdiAsync();
+        await PopulateMesesImpostoAsync();
+
         CdbRequestDtoValidacao.CdbRequestDtoValidar(cdbRequestDto);
         CdbRequestDtoValidacao.MesesImpostooValidar(MesesImpostos);
         CdbRequestDtoValidacao.TbCdiValidar(TbCdi);

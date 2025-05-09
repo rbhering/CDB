@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CDB.Application.Queries.MesesImposto;
-using CDB.Application.Tests.Mocks;
+using CDB.Application.Common.Mocks;
 using CDB.Domain.Entities;
 using CDB.Domain.Interfaces;
 using Moq;

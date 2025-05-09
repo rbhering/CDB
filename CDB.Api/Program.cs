@@ -1,14 +1,18 @@
 using CDB.Application.RegisterService;
 using CDB.CrossCutting.RegisterService;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 IoCContainer.RegisterServices(builder.Services);
 MediatorContainer.RegisterServices(builder.Services);
-ServiceContainer.RegisterDataBaseContext(builder.Services);
+ServiceContainer.RegisterAndPopulateDataBaseContext(builder.Services);
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
