@@ -4,7 +4,7 @@ Arquitetura:
 Clean Atchtechture e CQRS, seguindo os princípios SOLID.
 
 Design Patterns utilizados:
-Mediator, Repositoy, Factory, Strategy, Command, Layered.
+Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC.
 
 Abordagens: 
 TDD, DDD.
