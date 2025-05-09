@@ -13,7 +13,7 @@ Tecnologias:
 .NET 8, Angular 19.
 
 Frameworks: 
-MediatR, Entity Framework Core, Moq, NPM,  xUnit.
+MediatR, Entity Framework Core, Moq, Node.js, xUnit.
 
 Banco de Dados:
 Banco in Memory Com Entity Framework Core in Memory.
