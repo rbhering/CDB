@@ -13,12 +13,12 @@ public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
     public required TbCdi TbCdi { get; set; }
     public required List<MesesImposto> MesesImpostos { get; set; }
 
-    public async Task PopulateTbCdiAsync()
+    public async Task PopularTbCdiAsync()
     {
         var tbCdiQuery = new TbCdiQuery();
         TbCdi = mediator != null ? await mediator.Send(tbCdiQuery) : TbCdi;
     }
-    public async Task PopulateMesesImpostoAsync()
+    public async Task PopularMesesImpostoAsync()
     {
         var mesesImpostoQuery = new MesesImpostoQuery();
         MesesImpostos = mediator != null ? await mediator.Send(mesesImpostoQuery) : MesesImpostos;
@@ -27,8 +27,8 @@ public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
 
     public async Task<CdbResponseDto> CalcularCdb(CdbRequestDto cdbRequestDto)
     {
-        await PopulateTbCdiAsync();
-        await PopulateMesesImpostoAsync();
+        await PopularTbCdiAsync();
+        await PopularMesesImpostoAsync();
 
         CdbRequestDtoValidacao.CdbRequestDtoValidar(cdbRequestDto);
         CdbRequestDtoValidacao.MesesImpostooValidar(MesesImpostos);
@@ -41,11 +41,13 @@ public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
         {
             if (cdbRequestDto.QtdMeses <= item.QtdMeses)
             {
-                cdbResponseDto.ValorBruto =
-                    Math.Round(CalcularValorBruto(cdbRequestDto.ValorInicial, item.QtdMeses, TbCdi), 2);
+                cdbResponseDto.ValorBruto =  CalcularValorBruto(cdbRequestDto.ValorInicial, cdbRequestDto.QtdMeses, TbCdi);
 
-                cdbResponseDto.ValorLiquido = 
-                    Math.Round(CalcularValorLiquido(cdbRequestDto.ValorInicial, cdbResponseDto.ValorBruto, item.PorcentagemImposto), 2);
+                decimal imposto = CalcularImposto(cdbResponseDto.ValorBruto, cdbRequestDto.ValorInicial, item.PorcentagemImposto);
+
+                cdbResponseDto.ValorLiquido = Math.Round(CalcularValorLiquido(cdbResponseDto.ValorBruto, imposto), 2);
+
+                cdbResponseDto.ValorBruto = Math.Round(cdbResponseDto.ValorBruto, 2);
 
                 return cdbResponseDto;
             }
@@ -59,8 +61,13 @@ public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
     {
         return valorInicial * (decimal)Math.Pow((double)(1 + (tbCdi.Cdi * tbCdi.Tb)), (double)qtdMeses);
     }
-    private static decimal CalcularValorLiquido(decimal valorInicial, decimal valorBruto, decimal porcentagemImposto)
+
+    private static decimal CalcularImposto(decimal valorFinal, decimal valorInicial, decimal porcentagemImposto)
     {
-        return valorInicial + ((valorBruto - valorInicial) * porcentagemImposto);
+        return (valorFinal - valorInicial) * porcentagemImposto;
+    }
+    private static decimal CalcularValorLiquido(decimal valorFinal, decimal imposto)
+    {
+        return valorFinal - imposto;
     }
 }
