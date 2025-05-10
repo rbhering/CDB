@@ -1,26 +1,28 @@
-Descrição do projeto:
+<b>Projeto desenvolvido seguindo as arquiteturas Clean Architecture e CQRS, que organizam o código de modo a separar claramente as responsabilidades, facilitando a manutenção, testes e evolução do sistema. Além disso, dividem as operações de leitura e escrita, otimizando o desempenho e a escalabilidade. Essa combinação garante uma estrutura sólida, modular e eficiente, tornando o sistema mais fácil de entender, modificar e escalar conforme as necessidades.<b/>
 
-Arquitetura:
-Clean Atchtechture e CQRS, seguindo os princípios SOLID.
+<b>Arquiteturas:<b/>
+<br/>
+Clean Atchtechture e CQRS, .
 
-Design Patterns utilizados:
+<b>Design Patterns:<b/>
+<br/>
 Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC.
 
-Abordagens: 
-TDD, DDD.
+<b>Abordagens:<b/>
+<br/>
+TDD, DDD e princípios SOLID.
 
-Tecnologias: 
+<b>Tecnologias:<b/>
+<br/> 
 .NET 8, Angular 19.
 
-Frameworks: 
-MediatR, Entity Framework Core, Moq, Node.js, xUnit.
+<b>Frameworks:<b/>
+<br/> 
+MediatR, EntityFrameworkCore, EntityFrameworkCore.InMemory, Core, Moq, Node.js, xUnit, FluentValidation. 
 
 Banco de Dados:
-Banco in Memory Com Entity Framework Core in Memory.
-
-A imagem abaixo representa as arquiteturas. A arquitetura não é exatamente igual, mas sim baseada:
-
-<img src="https://github.com/rbhering/CDB/blob/main/Common/imagem06.jpg" alt="Texto Alternativo">
+Banco  de Dados em memória com Entity EntityFrameworkCore.InMemory.
+<br/><br/><br/>
 
 
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
