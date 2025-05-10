@@ -16,6 +16,8 @@ public static class ServiceContainer
             options.UseInMemoryDatabase("CdbDatabase");
         });
 
+        bool isServiceRegistered = services.Any(service => service.ServiceType == typeof(CdbContext));
+
         CdbContext context = new CdbContext(new DbContextOptionsBuilder<CdbContext>()
             .UseInMemoryDatabase("CdbDatabase")
             .Options);
@@ -30,9 +32,9 @@ public static class ServiceContainer
         mesesImpostoRepository.AddMesImpostoAsync(new MesesImposto { QtdMeses = 24, PorcentagemImposto = 0.175M });
         mesesImpostoRepository.AddMesImpostoAsync(new MesesImposto { QtdMeses = 60, PorcentagemImposto = 0.15M });
 
-        return mesesImpostoRepository.GetAllMesesImpostoAsync().Result.Count > 0 &&
+        return  isServiceRegistered &&
+                mesesImpostoRepository.GetAllMesesImpostoAsync().Result?.Count > 0 &&
                 tbCdiRepository.GetSingleTbCdiAsync().Result != null;
     }
-
 }
 

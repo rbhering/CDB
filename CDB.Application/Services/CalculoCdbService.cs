@@ -30,11 +30,6 @@ public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
         await PopularTbCdiAsync();
         await PopularMesesImpostoAsync();
 
-        CdbRequestDtoValidacao.CdbRequestDtoValidar(cdbRequestDto);
-        CdbRequestDtoValidacao.MesesImpostooValidar(MesesImpostos);
-        CdbRequestDtoValidacao.TbCdiValidar(TbCdi);
-
-
         var cdbResponseDto = new CdbResponseDto();
 
         foreach (var item in MesesImpostos.OrderBy(x => x.QtdMeses))
