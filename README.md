@@ -4,7 +4,7 @@ Arquitetura:
 Clean Atchtechture e CQRS, seguindo os princípios SOLID.
 
 Design Patterns utilizados:
-Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC.
+Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC, FluentValidation.
 
 Abordagens: 
 TDD, DDD.
@@ -18,9 +18,6 @@ MediatR, Entity Framework Core, Moq, Node.js, xUnit.
 Banco de Dados:
 Banco in Memory Com Entity Framework Core in Memory.
 
-A imagem abaixo representa as arquiteturas. A arquitetura não é exatamente igual, mas sim baseada:
-
-<img src="https://github.com/rbhering/CDB/blob/main/Common/imagem06.jpg" alt="Texto Alternativo">
 
 
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
