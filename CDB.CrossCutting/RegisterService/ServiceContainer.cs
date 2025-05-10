@@ -15,7 +15,7 @@ public static class ServiceContainer
         {
             options.UseInMemoryDatabase("CdbDatabase");
         });
-
+         
         bool isServiceRegistered = services.Any(service => service.ServiceType == typeof(CdbContext));
 
         CdbContext context = new CdbContext(new DbContextOptionsBuilder<CdbContext>()
