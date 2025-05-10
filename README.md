@@ -10,7 +10,7 @@ Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC.
 
 <b>Abordagens:<b/>
 <br/>
-TDD, DDD.
+TDD, DDD e princípios SOLID.
 
 <b>Tecnologias:<b/>
 <br/> 
