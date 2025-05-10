@@ -18,7 +18,7 @@ TDD, DDD.
 
 <b>Frameworks:<b/>
 <br/> 
-MediatR, EntityFrameworkCore, EntityFrameworkCore.InMemory, Core, Moq, Node.js, xUnit, FluentValidation.
+MediatR, EntityFrameworkCore, EntityFrameworkCore.InMemory, Core, Moq, Node.js, xUnit, FluentValidation. 
 
 Banco de Dados:
 Banco  de Dados em memória com Entity EntityFrameworkCore.InMemory.
