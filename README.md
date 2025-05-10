@@ -17,7 +17,7 @@ MediatR, Entity Framework Core, Moq, Node.js, xUnit.
 
 Banco de Dados:
 Banco in Memory Com Entity Framework Core in Memory.
-
+<br/>
 
 
 1 - Para abrir o projeto basta navegue até https://github.com/rbhering/CDB.
