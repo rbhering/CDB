@@ -1,18 +1,23 @@
-Descrição do projeto:
+<b>Descrição do projeto:<b/>
 
-Arquitetura:
-Clean Atchtechture e CQRS, seguindo os princípios SOLID.
+<b>Arquiteturas:<b/>
+<br/>
+Clean Atchtechture e CQRS, .
 
-Design Patterns utilizados:
+<b>Design Patterns:<b/>
+<br/>
 Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC, FluentValidation.
 
-Abordagens: 
+<b>Abordagens:<b/>
+<br/>
 TDD, DDD.
 
-Tecnologias: 
+<b>Tecnologias:<b/>
+<br/> 
 .NET 8, Angular 19.
 
-Frameworks: 
+<b>Frameworks:<b/>
+<br/> 
 MediatR, Entity Framework Core, Moq, Node.js, xUnit.
 
 Banco de Dados:
