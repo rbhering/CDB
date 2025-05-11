@@ -18,7 +18,7 @@ TDD, DDD e princípios SOLID.
 
 <b>Frameworks:<b/>
 <br/> 
-MediatR, EntityFrameworkCore, EntityFrameworkCore.InMemory, Moq, Node.js, xUnit, FluentValidation. 
+MediatR, EntityFrameworkCore, EntityFrameworkCore.InMemory, Moq, Node.js, xUnit, FluentValidation, Shouldly. 
 
 Banco de Dados:
 <br/>
