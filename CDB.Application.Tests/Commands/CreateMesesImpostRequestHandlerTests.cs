@@ -2,7 +2,6 @@
 using CDB.Application.Common.Mocks;
 using CDB.Domain.Interfaces;
 using Moq;
-using Shouldly;
 
 namespace CDB.Application.Tests.Commands;
 
