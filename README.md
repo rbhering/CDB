@@ -1,4 +1,4 @@
-<b>Projeto desenvolvido seguindo as arquiteturas Clean Architecture e CQRS, que organizam o código de modo a separar claramente as responsabilidades, facilitando a manutenção, testes e evolução do sistema. Além disso, dividem as operações de leitura e escrita, otimizando o desempenho e a escalabilidade. Essa combinação garante uma estrutura sólida, modular e eficiente, tornando o sistema mais fácil de entender, modificar e escalar conforme as necessidades.<b/>
+<b>Projeto desenvolvido seguindo as arquiteturas Clean Architecture e CQRS, que organizam o código de modo a separar claramente as responsabilidades, facilitando a manutenção, testes e evolução do sistema. Além disso, dividem as operações de leitura e escrita, otimizando o desempenho e a escalabilidade. Essa combinação garante uma estrutura sólida, modular e eficiente, tornando o sistema mais fácil de entender, modificar e escalar conforme as necessidades. Contém validação de cliente e servidor.<b/>
 
 <b>Arquiteturas:<b/>
 <br/>
