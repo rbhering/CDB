@@ -13,12 +13,12 @@ public class CalculoCdbService(IMediator? mediator) : ICalculoCdbService
     public required TbCdi TbCdi { get; set; }
     public required List<MesesImposto> MesesImpostos { get; set; }
 
-    public async Task PopularTbCdiAsync()
+    private async Task PopularTbCdiAsync()
     {
         var tbCdiQuery = new TbCdiQuery();
         TbCdi = mediator != null ? await mediator.Send(tbCdiQuery) : TbCdi;
     }
-    public async Task PopularMesesImpostoAsync()
+    private async Task PopularMesesImpostoAsync()
     {
         var mesesImpostoQuery = new MesesImpostoQuery();
         MesesImpostos = mediator != null ? await mediator.Send(mesesImpostoQuery) : MesesImpostos;
