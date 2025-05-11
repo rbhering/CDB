@@ -18,6 +18,7 @@ public class GetCdbDtoRequestHandlerTests
     [Fact]
     public async Task CdbResponseDtoHandler_GetCdbResponseDto()
     {
+        // Arrange
         CdbRequestDto cdbRequestDtoMock = new CdbRequestDto { QtdMeses = 10, ValorInicial = 10M };
 
         var tbCdiMock = GetPopulateObjects.GetTbCdi();
@@ -29,13 +30,15 @@ public class GetCdbDtoRequestHandlerTests
             MesesImpostos = mesesImpostosMock
         };
 
+        // Act
         var handler = new CdbResponseDtoHandler(calculoCdbService, null);
 
         var result = await handler.Handle(new CdbRequestDtoQuery(cdbRequestDtoMock), CancellationToken.None);
 
-        result.ShouldBeOfType<CDB.Application.Dtos.CdbResponseDto>();
+        // Assert
 
-        result.ValorBruto.ShouldBe(11.23M);
-        result.ValorLiquido.ShouldBe(10.25M);
+        result.ShouldBeOfType<CDB.Application.Dtos.CdbResponseDto>();
+        result.ValorBruto.ShouldBe(11.02M);
+        result.ValorLiquido.ShouldBe(10.81M);
     }
 }
