@@ -18,9 +18,9 @@ public class CdbController(IMediator mediator, IValidator<CdbRequestDto> validat
     [HttpPost(Name = "PostCdb")]
     public async Task<IActionResult> Post([FromBody] CdbRequestDto cdbRequestDto)
     {
-        var result = validatorCdbRequestDto.Validate(cdbRequestDto);
+        var validation = validatorCdbRequestDto.Validate(cdbRequestDto);
 
-        if (result.IsValid)
+        if (validation.IsValid)
         {
             try
             {
@@ -37,7 +37,7 @@ public class CdbController(IMediator mediator, IValidator<CdbRequestDto> validat
             return BadRequest(new
             {
                 message = "Dados inválidos",
-                errors = result.Errors.ToDictionary(x => x.PropertyName, x => x.ErrorMessage).Values
+                errors = validation.Errors.ToDictionary(x => x.PropertyName, x => x.ErrorMessage).Values
             });
         }
     }
