@@ -37,7 +37,7 @@ public class CdbController(IMediator mediator, IValidator<CdbRequestDto> validat
             return BadRequest(new
             {
                 message = "Dados inválidos",
-                errors = ModelState.Values
+                errors = result.Errors.ToDictionary(x => x.PropertyName, x => x.ErrorMessage).Values
             });
         }
     }
