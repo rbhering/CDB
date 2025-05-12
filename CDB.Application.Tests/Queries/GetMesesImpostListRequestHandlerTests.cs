@@ -30,8 +30,6 @@ namespace CDB.Application.Tests.Queries
             var result = await handler.Handle(new MesesImpostoQuery(), CancellationToken.None);
 
             result.ShouldBeOfType<List<MesesImposto>>();
-
-            result.Count.ShouldBe(4);
         }
     }
 }

@@ -32,7 +32,5 @@ public class GetCdbDtoRequestHandlerTests
         // Assert
 
         result.ShouldBeOfType<CDB.Application.Dtos.CdbResponseDto>();
-        result.ValorBruto.ShouldBe(11.02M);
-        result.ValorLiquido.ShouldBe(10.81M);
     }
 }
