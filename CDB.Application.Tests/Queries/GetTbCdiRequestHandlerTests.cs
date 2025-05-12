@@ -19,10 +19,13 @@ namespace CDB.Application.Tests.Queries
         [Fact]
         public async Task GetTbCdiListTest()
         {
+            // Arrange
             var handler = new TbCdiQueryHandler(_mockRepo.Object);
 
+            // Act
             var result = await handler.Handle(new TbCdiQuery(), CancellationToken.None);
 
+            //Assert
             result.ShouldBeOfType<TbCdi>();
 
             result.Cdi.ShouldBe(0.009M);

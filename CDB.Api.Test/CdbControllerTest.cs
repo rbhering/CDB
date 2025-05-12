@@ -50,10 +50,12 @@ namespace CDB.Api.Test
                 ValorInicial = -12M
             };
             var mockMediatr = new Mock<IMediator>();
-                        
+
+            // Act
             var validator = new CdbRequestDtoValidator();
             var controller = new CdbController(mockMediatr.Object, validator);
 
+            // Assert
             BadRequestObjectResult badRequestObjectResult = (BadRequestObjectResult) await controller.Post(cdbRequestDto);
             Assert.Equal(400, badRequestObjectResult.StatusCode);
             

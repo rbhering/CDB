@@ -25,10 +25,13 @@ namespace CDB.Application.Tests.Queries
         [Fact]
         public async Task GetMesesImposttoListTest()
         {
+            // Arrange
             var handler = new MesesImpostoQueryHandler(_mockRepo.Object);
 
+            // Act
             var result = await handler.Handle(new MesesImpostoQuery(), CancellationToken.None);
 
+            //Assert
             result.ShouldBeOfType<List<MesesImposto>>();
         }
     }
