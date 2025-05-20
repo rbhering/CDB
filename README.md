@@ -6,7 +6,7 @@ Clean Atchtechture e CQRS, .
 
 <b>Design Patterns:<b/>
 <br/>
-Mediator, Repositoy, Factory, Strategy, Command, Layered, IoC.
+Mediator, Repositoy,Command, Layered, IoC.
 
 <b>Abordagens:<b/>
 <br/>
